@@ -4,7 +4,9 @@
   "description": "<%= pluginDesc %>",
   "version": "0.0.1",
   "main": "index",
+  "scripts": {
+  	"postversion": "git push && git push --tags && git push"
+  },
   "dependencies":  {
-  	"changelog": "^1.0.7"
   }
 }
