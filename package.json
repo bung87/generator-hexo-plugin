@@ -38,6 +38,7 @@
   },
   "scripts": {
     "prepublish": "nsp check",
+    "postversion": "git push && git push --tags && git push",
     "pretest": "eslint . --fix",
     "test": "jest"
   },
