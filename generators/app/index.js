@@ -20,11 +20,15 @@ module.exports = class extends Generator {
         name: 'pluginName',
         message: 'hexo plugin name:',
         default: path.basename(process.cwd())
+      },
+      {
+        type: 'input',
+        name: 'pluginDesc',
+        message: 'Module description'
       }
     ];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
       this.props = props;
     });
   }
@@ -33,11 +37,12 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      {pluginName: this.props.pluginName}
+      this.props
     );
     this.fs.copyTpl(
       this.templatePath('index.js'),
-      this.destinationPath('index.js')
+      this.destinationPath('index.js'),
+      this.props
     );
     this.fs.copyTpl(
       this.templatePath('.gitignore'),
@@ -47,6 +52,5 @@ module.exports = class extends Generator {
 
   install() {
     this.npmInstall();
-    // This.installDependencies();
   }
 };

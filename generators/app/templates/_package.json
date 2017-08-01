@@ -1,6 +1,12 @@
 
 {
   "name": "hexo-plugin-<%= pluginName %>",
+  "description": "<%= pluginDesc %>",
   "version": "0.0.1",
-  "main": "index"
+  "main": "index",
+  "dependencies":  {
+  	"changelog": "^1.0.7",
+  	"git-config": "0.0.7", 
+  	"jshint": "^2.9.3"
+  }
 }
