@@ -2,20 +2,26 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const path = require('path');
+
+// Const gitconfig = require('git-config');
 
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the best ' + chalk.red('generator-hexo-plugin') + ' generator!'
+      'Welcome to ' + chalk.red('generator-hexo-plugin') + ' generator!'
     ));
 
-    const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    // Var config = gitconfig.sync();
+    const prompts = [
+      {
+        type: 'input',
+        name: 'pluginName',
+        message: 'hexo plugin name:',
+        default: path.basename(process.cwd())
+      }
+    ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -24,9 +30,14 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      {pluginName: this.props.pluginName}
+    );
+    this.fs.copyTpl(
+      this.templatePath('index.js'),
+      this.destinationPath('index.js')
     );
   }
 

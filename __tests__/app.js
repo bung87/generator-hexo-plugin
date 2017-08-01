@@ -11,7 +11,7 @@ describe('generator-hexo-plugin:app', () => {
 
   it('creates files', () => {
     assert.file([
-      'dummyfile.txt'
+      'package.json'
     ]);
   });
 });
