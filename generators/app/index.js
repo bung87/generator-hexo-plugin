@@ -39,9 +39,14 @@ module.exports = class extends Generator {
       this.templatePath('index.js'),
       this.destinationPath('index.js')
     );
+    this.fs.copyTpl(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
   }
 
   install() {
-    this.installDependencies();
+    this.npmInstall();
+    // This.installDependencies();
   }
 };
