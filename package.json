@@ -1,6 +1,6 @@
 {
   "name": "generator-hexo-plugin",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Generates a basic hexo plugin",
   "homepage": "https://githubcom/sebs/generator-hexo-plugin",
   "author": {
