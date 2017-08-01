@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Sebastian Schürmann",
+      "authorEmail": "sebs@2xs.org",
+      "authorUrl": ""
+    }
+  }
+}
