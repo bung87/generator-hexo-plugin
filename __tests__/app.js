@@ -19,5 +19,9 @@ describe('generator-hexo-plugin:app', () => {
     it('index.js', function () {
       assert.file('index.js');
     });
+
+    it('README.md', function () {
+      assert.file('README.md');
+    });
   });
 });

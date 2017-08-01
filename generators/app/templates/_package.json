@@ -5,8 +5,6 @@
   "version": "0.0.1",
   "main": "index",
   "dependencies":  {
-  	"changelog": "^1.0.7",
-  	"git-config": "0.0.7", 
-  	"jshint": "^2.9.3"
+  	"changelog": "^1.0.7"
   }
 }
