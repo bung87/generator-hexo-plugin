@@ -23,5 +23,9 @@ describe('generator-hexo-plugin:app', () => {
     it('README.md', function () {
       assert.file('README.md');
     });
+
+    it('travis.yml', function () {
+      assert.file('travis.yml');
+    });
   });
 });
