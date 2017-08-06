@@ -1,6 +1,6 @@
 
 {
-  "name": "hexo-plugin-<%= pluginName %>",
+  "name": "<%= pluginPrefix %><%= pluginName %>",
   "description": "<%= pluginDesc %>",
   "version": "0.0.1",
   "main": "index",

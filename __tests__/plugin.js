@@ -3,10 +3,10 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
-describe('plugin', () => {
+describe('migration', () => {
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({pluginName: 'foo', pluginDesc: 'bar'});
+      .withPrompts({pluginType: 'migration', pluginName: 'foo', pluginDesc: 'baz'});
   });
 
   describe('creates files', function () {
@@ -20,6 +20,10 @@ describe('plugin', () => {
       assert.file('index.js');
     });
 
+    it('migrator.js', function () {
+      assert.file('migrator.js');
+    });
+
     it('README.md', function () {
       assert.file('README.md');
     });
@@ -29,4 +33,3 @@ describe('plugin', () => {
     });
   });
 });
-
