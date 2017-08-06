@@ -1,5 +1,5 @@
 # generator-hexo-plugin [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generates a basic hexo plugin
+> Generates a basic hexo plugin or migration
 
 ## Installation
 
