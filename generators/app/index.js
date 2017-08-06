@@ -23,18 +23,19 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'pluginType',
         choices: ['plugin', 'migrator'],
+        message: 'Type of plugin:',
         default: 'plugin'
       },
       {
         type: 'input',
         name: 'pluginName',
-        message: 'name:',
+        message: 'Name:',
         default: createName(path.basename(process.cwd()))
       },
       {
         type: 'input',
         name: 'pluginDesc',
-        message: 'Module description'
+        message: 'Description:'
       }
     ];
 
