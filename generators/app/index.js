@@ -13,13 +13,23 @@ module.exports = class extends Generator {
       'Welcome to ' + chalk.red('generator-hexo-plugin') + ' generator!'
     ));
 
+    var createName = function () {
+      return path.basename(process.cwd());
+    };
+
     // Var config = gitconfig.sync();
     const prompts = [
       {
+        type: 'list',
+        name: 'pluginType',
+        choices: ['plugin', 'migrator'],
+        default: 'plugin'
+      },
+      {
         type: 'input',
         name: 'pluginName',
-        message: 'hexo plugin name:',
-        default: path.basename(process.cwd())
+        message: 'name:',
+        default: createName(path.basename(process.cwd()))
       },
       {
         type: 'input',
@@ -39,11 +49,26 @@ module.exports = class extends Generator {
       this.destinationPath('package.json'),
       this.props
     );
-    this.fs.copyTpl(
-      this.templatePath('index.js'),
-      this.destinationPath('index.js'),
-      this.props
-    );
+
+    if (this.props.pluginType === 'plugin') {
+      this.fs.copyTpl(
+        this.templatePath('index_plugin.js'),
+        this.destinationPath('index.js'),
+        this.props
+      );
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('index_migrator.js'),
+        this.destinationPath('index.js'),
+        this.props
+      );
+      this.fs.copyTpl(
+        this.templatePath('migrator.js'),
+        this.destinationPath('migrator.js'),
+        this.props
+      );
+    }
+
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
