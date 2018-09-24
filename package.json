@@ -2,7 +2,7 @@
   "name": "generator-hexo-plugin",
   "version": "0.1.0",
   "description": "Generates a basic hexo plugin",
-  "homepage": "https://githubcom/sebs/generator-hexo-plugin",
+  "homepage": "https://github.com/sebs/generator-hexo-plugin",
   "author": {
     "name": "Sebastian Schürmann",
     "email": "sebs@2xs.org",
